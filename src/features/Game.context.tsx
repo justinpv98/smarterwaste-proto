@@ -88,7 +88,7 @@ export const GameProvider = ({ children }: GameProviderProps) => {
 
     randomQuestions.forEach((question) => {
       const img = new Image();
-      img.src = question.question;
+      img.src = "/assets/images/" + question.question;
     });
   }
 
