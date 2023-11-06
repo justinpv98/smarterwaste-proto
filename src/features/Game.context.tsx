@@ -85,6 +85,11 @@ export const GameProvider = ({ children }: GameProviderProps) => {
     }
 
     dispatch({ type: GET_QUESTIONS, payload: randomQuestions });
+
+    randomQuestions.forEach((question) => {
+      const img = new Image();
+      img.src = question.question;
+    });
   }
 
   function answerQuestion(isAnswerCorrect: boolean) {
