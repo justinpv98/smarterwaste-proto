@@ -567,7 +567,7 @@ button,
 
 @media (min-width: 48em) {
   .categories {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     margin: auto 1.5rem;
   }
 

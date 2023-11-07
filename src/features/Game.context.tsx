@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import reducer from "./Game.reducer";
+import { preloadImage } from "../utils/utils";
 
 import {
   GET_QUESTIONS,
@@ -56,6 +57,8 @@ export const GameProvider = ({ children }: GameProviderProps) => {
 
     if (!parsedCategories) return;
 
+    parsedCategories.forEach(category => preloadImage(category.imageURL));
+
     dispatch({ type: GET_CATEGORIES, payload: parsedCategories });
   }
 
@@ -87,8 +90,7 @@ export const GameProvider = ({ children }: GameProviderProps) => {
     dispatch({ type: GET_QUESTIONS, payload: randomQuestions });
 
     randomQuestions.forEach((question) => {
-      const img = new Image();
-      img.src = "/assets/images/" + question.question;
+      preloadImage(question.question, 'bins')
     });
   }
 
