@@ -57,7 +57,7 @@ export const GameProvider = ({ children }: GameProviderProps) => {
 
     if (!parsedCategories) return;
 
-    parsedCategories.forEach(category => preloadImage(category.imageURL));
+    parsedCategories.forEach(category => preloadImage(category.imageURL, 'bins'));
 
     dispatch({ type: GET_CATEGORIES, payload: parsedCategories });
   }
@@ -90,7 +90,7 @@ export const GameProvider = ({ children }: GameProviderProps) => {
     dispatch({ type: GET_QUESTIONS, payload: randomQuestions });
 
     randomQuestions.forEach((question) => {
-      preloadImage(question.question, 'bins')
+      preloadImage(question.question)
     });
   }
 
